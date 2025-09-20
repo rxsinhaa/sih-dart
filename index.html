@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AcadHub</title>
+  <style>
+    /* --- Google Font Import --- */
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap');
+
+    /* --- Root Variables & Global Styles --- */
+    :root {
+      --primary-blue: #005A9C;
+      --dark-blue: #003F6E;
+      --light-gray-bg: #f4f7f6;
+      --text-color: #333;
+      --white: #ffffff;
+      --shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    body {
+      background-color: var(--white);
+      color: var(--text-color);
+    }
+
+    /* --- Header (No longer sticky) --- */
+    header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between; /* Positions items at either end */
+      padding: 1rem 2.5rem;
+      box-shadow: var(--shadow);
+      
+      background:
+        radial-gradient(circle at 0% 0%, rgba(0, 90, 156, 0.08), transparent 30%),
+        radial-gradient(circle at 100% 0%, rgba(0, 90, 156, 0.08), transparent 30%),
+        radial-gradient(circle at 0% 100%, rgba(0, 90, 156, 0.08), transparent 30%),
+        radial-gradient(circle at 100% 100%, rgba(0, 90, 156, 0.08), transparent 30%),
+        #f8f9fa;
+
+      width: 98%;
+      max-width: 1600px;
+      margin: 10px auto;
+      border-radius: 15px;
+      z-index: 1000;
+      /* position: sticky; and top: 10px; have been removed */
+    }
+
+    .header-title {
+      text-align: left; /* Aligned to the left */
+    }
+
+    header h1 {
+      font-size: 1.8rem;
+      color: var(--primary-blue);
+    }
+
+    header p {
+      color: var(--text-color);
+      font-style: normal;
+      font-weight: 400;
+      opacity: 0.7;
+    }
+
+    /* --- Hero Section --- */
+    .hero {
+      height: 90vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      color: var(--white);
+      padding: 20px;
+      background-image: linear-gradient(rgba(0, 47, 85, 0.6), rgba(0, 47, 85, 0.6)), url('https://images.unsplash.com/photo-1541339907198-e08756dedf3f?q=80&w=2070');
+      background-size: cover;
+      background-position: center;
+    }
+
+    .hero h2 {
+      font-size: 3rem;
+      margin-bottom: 15px;
+      text-shadow: 0 2px 4px rgba(0,0,0,0.5);
+    }
+
+    .hero p {
+      font-size: 1.2rem;
+      margin-bottom: 30px;
+      text-shadow: 0 1px 3px rgba(0,0,0,0.5);
+    }
+
+    .buttons {
+      display: flex;
+      gap: 20px;
+      justify-content: center;
+    }
+
+    /* --- Button Styles --- */
+    .btn {
+      background: var(--white);
+      border: 2px solid transparent; /* Added for hover transition consistency */
+      color: var(--primary-blue);
+      padding: 12px 30px;
+      border-radius: 50px;
+      font-size: 1rem;
+      font-weight: 600;
+      cursor: pointer;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+      transition: all 0.3s ease;
+    }
+
+    .btn:hover {
+      background: #eef5ff;
+      color: var(--dark-blue);
+      transform: translateY(-3px);
+      box-shadow: 0 7px 20px rgba(0, 0, 0, 0.25);
+    }
+    
+    /* New Admin Button Style */
+    .btn.btn-admin {
+      background: transparent;
+      color: var(--primary-blue);
+      border: 2px solid var(--primary-blue);
+      box-shadow: none;
+      padding: 10px 28px; /* Adjusted padding for border */
+    }
+    
+    .btn.btn-admin:hover {
+        background: var(--primary-blue);
+        color: var(--white);
+        box-shadow: 0 4px 12px rgba(0, 90, 156, 0.3);
+    }
+
+
+    /* --- Highlights --- */
+    .highlights {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 2rem;
+      padding: 4rem 5%;
+      background: var(--light-gray-bg);
+    }
+
+    .highlight {
+      text-align: center;
+      padding: 2rem;
+      border-radius: 12px;
+      background: var(--white);
+      box-shadow: var(--shadow);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .highlight span {
+      font-size: 3rem;
+      line-height: 1;
+      display: block;
+      margin-bottom: 1rem;
+    }
+
+    .highlight h3 {
+      font-size: 1.25rem;
+      color: var(--dark-blue);
+    }
+
+    .highlight:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 12px 28px rgba(0,0,0,0.12);
+    }
+
+    /* --- Footer --- */
+    footer {
+      background: var(--dark-blue);
+      color: var(--white);
+      text-align: center;
+      padding: 2rem;
+      font-size: 0.9rem;
+    }
+
+    /* --- Responsive Design --- */
+    @media (max-width: 768px) {
+      header {
+        width: 95%;
+        flex-direction: column;
+        gap: 15px;
+        text-align: center;
+      }
+      
+      .header-title {
+        text-align: center;
+      }
+
+      .hero h2 {
+        font-size: 2.2rem;
+      }
+
+      .buttons {
+        flex-direction: column;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="header-title">
+      <h1>AcadHub</h1>
+      <p>Dart's smart classroom</p>
+    </div>
+    <button class="btn btn-admin" onclick="goToAdminLogin()">Administrator Login</button>
+  </header>
+
+  <section class="hero">
+    <div class="hero-content">
+      <h2>Welcome to Dart Institute of Techonology</h2>
+      <p>AcadHub provides digital gateway to learning and teaching excellence.</p>
+      <div class="buttons">
+        <button class="btn" onclick="goToTeacherLogin()">Teacher Login</button>
+        <button class="btn" onclick="goToClassCommon()">Student's page</button>
+      </div>
+    </div>
+  </section>
+
+  <section class="highlights">
+    <div class="highlight">
+      <span>🎓</span>
+      <h3>Quality Education</h3>
+    </div>
+    <div class="highlight">
+      <span>📚</span>
+      <h3>Digital Learning</h3>
+    </div>
+    <div class="highlight">
+      <span>👩‍🏫</span>
+      <h3>Dedicated Faculty</h3>
+    </div>
+    <div class="highlight">
+      <span>🌍</span>
+      <h3>Global Outlook</h3>
+    </div>
+  </section>
+
+  <footer>
+    <p>&copy; 2025 [College Name]. All rights reserved.</p>
+    <p>Contact: info@college.edu | +123 456 7890</p>
+  </footer>
+
+  <script>
+    function goToTeacherLogin() {
+      // Redirect to teacher login page
+      window.location.href = "teacher.html";
+    }
+
+    function goToClassCommon() {
+      // Redirect to class common page
+      window.location.href = "student.html";
+    }
+
+    function goToAdminLogin() {
+      // Redirect to admin login page
+      window.location.href = "admin-login.html";
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,272 @@
+/* --- Google Font Import --- */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap');
+
+/* --- 1. Cohesive Color Palette & Global Styles --- */
+:root {
+  --primary-blue: #005A9C;
+  --dark-blue: #003F6E;
+  --light-gray-bg: #f4f7f6;
+  --text-color: #333;
+  --white: #ffffff;
+  --shadow: 0 5px 15px rgba(0, 0, 0, 0.08); /* Softer shadow */
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  background: var(--white);
+  color: var(--text-color);
+  opacity: 0; /* Hidden by default for JS loader */
+  transition: opacity 0.5s ease-in;
+}
+
+body.loaded {
+  opacity: 1; /* Fade in when loaded */
+}
+/* --- Navbar: Made it 'float' and curved --- */
+/* --- Navbar: Full-width with slight curves --- */
+/* --- Navbar: Floating with Logo and Enhanced Effects --- */
+/* --- Navbar: Floating with Gradient Corners and Enhanced Effects --- */
+nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.8rem 2rem;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.12);
+  
+  /* --- New Gradient Background --- */
+  /* This layers four corner gradients over the solid background color. */
+  background:
+    radial-gradient(circle at 0% 0%, rgba(0, 90, 156, 0.08), transparent 30%),
+    radial-gradient(circle at 100% 0%, rgba(0, 90, 156, 0.08), transparent 30%),
+    radial-gradient(circle at 0% 100%, rgba(0, 90, 156, 0.08), transparent 30%),
+    radial-gradient(circle at 100% 100%, rgba(0, 90, 156, 0.08), transparent 30%),
+    #f0f2f5; /* Your solid silver/light-gray background */
+
+  width: 98%;
+  max-width: 1600px;
+  margin: 10px auto;
+  border-radius: 15px;
+  position: ;
+  top: 10px;
+  z-index: 1000;
+}
+
+nav h1 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  font-family: 'Poppins', sans-serif;
+  color: var(--primary-blue);
+  margin-right: auto; /* Pushes other elements away, making space for the logo */
+}
+/* --- Improved Button Styling --- */
+nav button {
+  background: var(--primary-blue);
+  border: none;
+  color: var(--white);
+  padding: 12px 30px; /* Slightly larger for more presence */
+  border-radius: 50px;
+  cursor: pointer;
+  font-weight: 600;
+  flex-shrink: 0; /* Prevents the button from shrinking */
+  margin-left: auto; /* Pushes the button to the far right */
+  box-shadow: 0 4px 12px rgba(0, 90, 156, 0.2); /* Subtle shadow matching the button color */
+  transition: all 0.3s ease; /* Smooth transition for all properties */
+}
+
+/* --- Enhanced Button Hover Effect --- */
+nav button:hover {
+  background: var(--dark-blue);
+  transform: translateY(-3px); /* Lifts the button more */
+  box-shadow: 0 7px 20px rgba(0, 63, 110, 0.3); /* Stronger shadow on hover */
+}
+
+/* --- Responsive adjustments for the new layout --- */
+@media (max-width: 850px) {
+  nav {
+    flex-wrap: wrap; /* Allow items to wrap to the next line */
+    justify-content: center;
+    gap: 1rem;
+    padding: 1rem;
+  }
+  
+  .navbar-logo {
+    order: -1; /* Puts the logo at the top */
+    width: 100%;
+    text-align: center;
+    margin: 0;
+  }
+
+  nav h1, nav button {
+    margin: 0; /* Reset margins for centered layout */
+  }
+}
+/* --- 3. Hero Section Refinement --- */
+.hero {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 2.5rem;
+  min-height: 85vh; /* Use min-height for flexibility */
+  width: 100%;
+  background: var(--light-gray-bg);
+  padding: 2rem 5%;
+}
+
+.hero-textbox,
+.hero-imagebox {
+  flex: 1;
+  max-width: 600px; /* Slightly larger max-width */
+  height: 500px; /* Consistent height for alignment */
+  border-radius: 20px;
+  box-shadow: var(--shadow);
+}
+
+.hero-textbox {
+  background: var(--white);
+  padding: 40px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.hero-textbox h2 {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+  color: var(--dark-blue);
+}
+
+.hero-textbox p {
+  font-size: 1.1rem;
+  line-height: 1.7;
+  color: var(--text-color); /* FIX: Was white on white */
+}
+
+.hero-imagebox {
+  background: url("ba.jpg") no-repeat center center;
+  background-size: cover;
+}
+
+/* --- 4. Cards (Courses & Infra) --- */
+.courses, .infra {
+  padding: 4rem 5%;
+}
+
+.courses {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+}
+
+.course, .infra-box {
+  background: var(--white);
+  border-radius: 12px;
+  padding: 25px;
+  box-shadow: var(--shadow);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  text-align: center;
+}
+
+.course:hover, .infra-box:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 10px 20px rgba(0,0,0,0.12);
+}
+
+.course h3, .infra-box h3 {
+  margin-bottom: 10px;
+  color: var(--primary-blue);
+  font-size: 1.25rem;
+}
+
+.infra {
+  display: flex;
+  justify-content: center;
+  align-items: stretch; /* Make boxes same height */
+  gap: 2rem;
+  background: var(--light-gray-bg);
+  flex-wrap: wrap;
+}
+
+.infra-box {
+  flex: 1;
+  min-width: 300px;
+}
+
+/* --- 5. Footer --- */
+footer {
+  background: var(--dark-blue);
+  color: var(--white);
+  text-align: center;
+  padding: 2rem;
+}
+
+/* --- 6. Loader Modal (For Page Load) --- */
+.loader-modal {
+  display: flex; /* Visible by default */
+  position: fixed;
+  z-index: 9999;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background: var(--primary-blue);
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+.loader-modal.hidden {
+  opacity: 0;
+  visibility: hidden;
+}
+
+.loader-content {
+  color: var(--white);
+  text-align: center;
+}
+
+.loader-content h2 {
+  color: var(--white);
+}
+
+.spinner {
+  margin: 20px auto;
+  border: 5px solid rgba(255, 255, 255, 0.3);
+  border-top: 5px solid var(--white);
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* --- 7. Responsive Design for Mobile --- */
+@media (max-width: 768px) {
+  nav {
+    flex-direction: column;
+    gap: 1rem;
+    text-align: center;
+  }
+
+  .hero {
+    flex-direction: column;
+    height: auto; /* Let content define height */
+    text-align: center;
+  }
+  .hero-textbox, .hero-imagebox {
+      height: auto;
+  }
+  .hero-imagebox {
+      min-height: 250px; /* Ensure image is visible */
+  }
+}
